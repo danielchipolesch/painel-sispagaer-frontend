@@ -97,7 +97,7 @@ const router = createRouter({
 
 // Update document title on navigation
 router.afterEach((to) => {
-  const appTitle = import.meta.env.VITE_APP_TITLE || 'PAG Eletrônico - BI'
+  const appTitle = import.meta.env.VITE_APP_TITLE || 'SISPAGAER'
   document.title = to.meta?.title ? `${to.meta.title} | ${appTitle}` : appTitle
 })
 

@@ -4,7 +4,7 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import '@mdi/font/css/materialdesignicons.css'
 
 /**
- * Color palette based on the PAG Eletrônico branding.
+ * Color palette based on the SISPAGAER branding.
  * Dark navy blue for structure elements, light gray for backgrounds.
  */
 const pagTheme = {

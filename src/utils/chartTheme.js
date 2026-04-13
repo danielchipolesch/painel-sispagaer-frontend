@@ -1,5 +1,5 @@
 /**
- * Custom ECharts theme aligned with the PAG Eletrônico color palette.
+ * Custom ECharts theme aligned with the SISPAGAER color palette.
  * Import and register once; reference by name in chart option objects.
  *
  * Usage:
