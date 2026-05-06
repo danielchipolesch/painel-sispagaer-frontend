@@ -53,6 +53,46 @@ export const payrollService = {
     return mockByCategory()
   },
 
+  async getByCategoryEfetivoPago(year, month) {
+    // TODO: return api.get('/payroll/by-category', { params: { year, month } })
+    return mockByCategoryEfetivoPago()
+  },
+
+  async getByAuxAlimentODGSA(year, month) {
+    // TODO: return api.get('/payroll/by-category', { params: { year, month } })
+    return mockByAuxAlimentODGSA()
+  },
+
+  async getByAuxTranspODGSA(year, month) {
+    // TODO: return api.get('/payroll/by-category', { params: { year, month } })
+    return mockByAuxTranspODGSA()
+  },
+
+  async getByGratRepODGSA(year, month) {
+    // TODO: return api.get('/payroll/by-category', { params: { year, month } })
+    return mockByGratRepODGSA()
+  },
+
+  async getByAuxFardODGSA(year, month) {
+    // TODO: return api.get('/payroll/by-category', { params: { year, month } })
+    return mockByAuxFardODGSA()
+  },
+
+  async getByQuantMilQuad(year, month) {
+    // TODO: return api.get('/payroll/by-category', { params: { year, month } })
+    return mockByQuantMilQuad()
+  },
+
+  async getByCustMilQuad(year, month) {
+    // TODO: return api.get('/payroll/by-category', { params: { year, month } })
+    return mockByCustMilQuad()
+  },
+
+  async getByMorteFicta(year, month) {
+    // TODO: return api.get('/payroll/by-category', { params: { year, month } })
+    return mockByMorteFicta()
+  },
+
   /**
    * Year-over-year comparison data.
    * GET /payroll/comparative?yearA={yearA}&yearB={yearB}
@@ -126,6 +166,210 @@ function mockByCategory() {
     { category: 'Adicionais', value: 5_600_000 },
     { category: 'Indenizações', value: 3_400_000 },
     { category: 'Outros Créditos', value: 3_050_320 },
+  ]
+}
+
+function mockByCategoryEfetivoPago() {
+  return [
+    { category: 'Anistiados', value: 28_500_000 },
+    { category: 'Ativos', value: 8_200_000 },
+    { category: 'Pensionistas', value: 5_600_000 },
+    { category: 'Veteranos', value: 3_400_000 },
+    { category: 'Outros Créditos', value: 3_050_320 },
+  ]
+}
+
+function mockByAuxAlimentODGSA() {
+  return [
+    { category: 'ASOCEA', value: 28_500_000 },
+    { category: 'ASPAER', value: 8_200_000 },
+    { category: 'CENCIAR', value: 5_600_000 },
+    { category: 'CENIPA', value: 3_400_000 },
+    { category: 'CIAER', value: 3_050_320 },
+    { category: 'COMAE', value: 3_050_320 },
+    { category: 'COMGAP', value: 3_050_320 },
+    { category: 'COMGEP', value: 3_050_320 },
+    { category: 'COMPREP', value: 3_050_320 },
+    { category: 'DCTA', value: 3_050_320 },
+    { category: 'DECEA', value: 3_050_320 },
+    { category: 'EMAER', value: 3_050_320 },
+    { category: 'GABAER', value: 3_050_320 },
+    { category: 'INCAER', value: 3_050_320 },
+    { category: 'SECPROM', value: 3_050_320 },
+    { category: 'SEFA', value: 3_050_320 },
+    { category: 'CECOMSAER', value: 3_050_320 },
+    { category: 'COMEXER', value: 3_050_320 },
+    { category: 'MDEFESA', value: 3_050_320 },
+    { category: 'ORGEXT', value: 3_050_320 },
+  ]
+}
+
+function mockByAuxTranspODGSA() {
+  return [
+    { category: 'ASOCEA', value: 28_500_000 },
+    { category: 'ASPAER', value: 8_200_000 },
+    { category: 'CENCIAR', value: 5_600_000 },
+    { category: 'CENIPA', value: 3_400_000 },
+    { category: 'CIAER', value: 3_050_320 },
+    { category: 'COMAE', value: 3_050_320 },
+    { category: 'COMGAP', value: 3_050_320 },
+    { category: 'COMGEP', value: 3_050_320 },
+    { category: 'COMPREP', value: 3_050_320 },
+    { category: 'DCTA', value: 3_050_320 },
+    { category: 'DECEA', value: 3_050_320 },
+    { category: 'EMAER', value: 3_050_320 },
+    { category: 'GABAER', value: 3_050_320 },
+    { category: 'INCAER', value: 3_050_320 },
+    { category: 'SECPROM', value: 3_050_320 },
+    { category: 'SEFA', value: 3_050_320 },
+    { category: 'CECOMSAER', value: 3_050_320 },
+    { category: 'COMEXER', value: 3_050_320 },
+    { category: 'MDEFESA', value: 3_050_320 },
+    { category: 'ORGEXT', value: 3_050_320 },
+  ]
+}
+
+function mockByGratRepODGSA() {
+  return [
+    { category: 'ASPAER', value: 8_200_000 },
+    { category: 'CENIPA', value: 3_400_000 },
+    { category: 'CIAER', value: 3_050_320 },
+    { category: 'COMAE', value: 3_050_320 },
+    { category: 'COMGAP', value: 3_050_320 },
+    { category: 'COMGEP', value: 3_050_320 },
+    { category: 'COMPREP', value: 3_050_320 },
+    { category: 'DCTA', value: 3_050_320 },
+    { category: 'DECEA', value: 3_050_320 },
+    { category: 'EMAER', value: 3_050_320 },
+    { category: 'GABAER', value: 3_050_320 },
+    { category: 'INCAER', value: 3_050_320 },
+    { category: 'SECPROM', value: 3_050_320 },
+    { category: 'SEFA', value: 3_050_320 },
+    { category: 'CECOMSAER', value: 3_050_320 },
+    { category: 'COMEXER', value: 3_050_320 },
+    { category: 'MDEFESA', value: 3_050_320 },
+    { category: 'ORGEXT', value: 3_050_320 },
+  ]
+}
+
+function mockByAuxFardODGSA() {
+  return [
+    { category: 'ASOCEA', value: 28_500_000 },
+    { category: 'ASPAER', value: 8_200_000 },
+    { category: 'CENCIAR', value: 5_600_000 },
+    { category: 'CENIPA', value: 3_400_000 },
+    { category: 'CIAER', value: 3_050_320 },
+    { category: 'COMAE', value: 3_050_320 },
+    { category: 'COMGAP', value: 3_050_320 },
+    { category: 'COMGEP', value: 3_050_320 },
+    { category: 'COMPREP', value: 3_050_320 },
+    { category: 'DCTA', value: 3_050_320 },
+    { category: 'DECEA', value: 3_050_320 },
+    { category: 'EMAER', value: 3_050_320 },
+    { category: 'GABAER', value: 3_050_320 },
+    { category: 'INCAER', value: 3_050_320 },
+    { category: 'SECPROM', value: 3_050_320 },
+    { category: 'SEFA', value: 3_050_320 },
+    { category: 'CECOMSAER', value: 3_050_320 },
+    { category: 'COMEXER', value: 3_050_320 },
+    { category: 'MDEFESA', value: 3_050_320 },
+    { category: 'ORGEXT', value: 3_050_320 },
+  ]
+}
+
+function mockByQuantMilQuad() {
+  return [
+    { category: 'QOAV', value: 700 },
+    { category: 'QOENG', value: 300 },
+    { category: 'QOINT', value: 500 },
+    { category: 'QOMED', value: 600 },
+    { category: 'QOFARM', value: 1000 },
+    { category: 'QODENT', value: 2000 },
+    { category: 'QOINF', value: 550 },
+    { category: 'QOEAV', value: 800 },
+    { category: 'QOECOM', value: 350 },
+    { category: 'QOEARM', value: 600 },
+    { category: 'QOEFOT', value: 750 },
+    { category: 'QOEMET', value: 755 },
+    { category: 'QOECTA', value: 856 },
+    { category: 'QOESUP', value: 796 },
+    { category: 'QOEA', value: 1052 },
+    { category: 'QOCAPL', value: 200 },
+    { category: 'QOAP', value: 302 },
+    { category: 'QCOA', value: 401 },
+    { category: 'QOCON3', value: 408 },
+    { category: 'QOCON', value: 326 },
+    { category: 'NTQ', value: 400 },
+    { category: 'QSS', value: 600 },
+    { category: 'QFG', value: 601 },
+    { category: 'QESA', value: 630 },
+    { category: 'QTA', value: 789 },
+    { category: 'QSCON', value: 456 },
+    { category: 'QCB', value: 201 },
+    { category: 'QCBCON', value: 360 },
+    { category: 'QSD', value: 180 },
+    { category: 'QEST', value: 100 },
+  ]
+}
+
+function mockByCustMilQuad() {
+  return [
+    { category: 'QOAV', value: 3_050_320 },
+    { category: 'QOENG', value: 3_050_320 },
+    { category: 'QOINT', value: 3_050_320 },
+    { category: 'QOMED', value: 3_050_320 },
+    { category: 'QOFARM', value: 3_050_320 },
+    { category: 'QODENT', value: 3_050_320 },
+    { category: 'QOINF', value: 3_050_320 },
+    { category: 'QOEAV', value: 3_050_320 },
+    { category: 'QOECOM', value: 3_050_320 },
+    { category: 'QOEARM', value: 3_050_320 },
+    { category: 'QOEFOT', value: 3_050_320 },
+    { category: 'QOEMET', value: 3_050_320 },
+    { category: 'QOECTA', value: 3_050_320 },
+    { category: 'QOESUP', value: 3_050_320 },
+    { category: 'QOEA', value: 3_050_320 },
+    { category: 'QOCAPL', value: 3_050_320 },
+    { category: 'QOAP', value: 3_050_320 },
+    { category: 'QCOA', value: 3_050_320 },
+    { category: 'QOCON3', value: 3_050_320 },
+    { category: 'QOCON', value: 3_050_320 },
+    { category: 'NTQ', value: 3_050_320 },
+    { category: 'QSS', value: 3_050_320 },
+    { category: 'QFG', value: 3_050_320 },
+    { category: 'QESA', value: 3_050_320 },
+    { category: 'QTA', value: 3_050_320 },
+    { category: 'QSCON', value: 3_050_320 },
+    { category: 'QCB', value: 3_050_320 },
+    { category: 'QCBCON', value: 3_050_320 },
+    { category: 'QSD', value: 3_050_320 },
+    { category: 'QEST', value: 3_050_320 },
+  ]
+}
+
+function mockByMorteFicta() {
+  return [
+    { category: 'AP', value: 15 },
+    { category: 'BR', value: 30 },
+    { category: 'CB', value: 80 },
+    { category: 'CL', value: 40 },
+    { category: 'CP', value: 25 },
+    { category: 'MA', value: 24 },
+    { category: 'MJ', value: 63 },
+    { category: 'SD', value: 27 },
+    { category: 'SO', value: 81 },
+    { category: 'S2', value: 100 },
+    { category: 'TB', value: 63 },
+    { category: 'TC', value: 96 },
+    { category: 'TM', value: 12 },
+    { category: 'T1', value: 10 },
+    { category: 'T2', value: 52 },
+    { category: '1S', value: 36 },
+    { category: '1T', value: 41 },
+    { category: '2S', value: 24 },
+    { category: '2T', value: 56 },
+    { category: '3S', value: 67 },
+    { category: 'S1', value: 5 },
   ]
 }
 

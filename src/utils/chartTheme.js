@@ -20,11 +20,25 @@ export const PAG_CHART_COLORS = [
   '#6D4C41', // brown
   '#039BE5', // light blue
   '#7CB342', // light green
+  '#3AB09E', // teal
+  '#0000FF', // pure blue
+  '#1E90FF', // dodger blue
+  '#32CD32', // lime green
+  '#FF4500', // orange red
+  '#9ACD32', // yellow green
+  '#8B0000', // dark red
+  '#4B0082', // indigo
+  '#00CED1', // dark turquoise
+  '#F0E68C', // khaki
+  '#FF1493', // deep pink
+  '#DC143C', // crimson
+  '#2E8B57', // sea green
+  '#FF6347', // tomato
 ]
 
 const pagEchartsTheme = {
   color: PAG_CHART_COLORS,
-  backgroundColor: 'transparent',
+  backgroundColor: '#ffffff',
   textStyle: {
     fontFamily: 'Roboto, sans-serif',
     color: '#424242',
@@ -153,6 +167,7 @@ export const baseChartOption = {
       saveAsImage: {
         title: 'Salvar imagem',
         pixelRatio: 2,
+        fillstyle: '#ffffff',
       },
     },
   },

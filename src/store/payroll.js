@@ -17,6 +17,14 @@ export const usePayrollStore = defineStore('payroll', () => {
   const byRank = ref([])
   const byUnit = ref([])
   const byCategory = ref([])
+  const byCategoryEfetivoPago = ref([])
+  const byAuxAlimentODGSA = ref([])
+  const byAuxTranspODGSA = ref([])
+  const byGratRepODGSA = ref([])
+  const byAuxFardODGSA = ref([])
+  const byQuantMilQuad = ref([])
+  const byCustMilQuad = ref([])
+  const byMorteFicta = ref([])
   const comparativeData = ref(null)
 
   // ─── Actions ──────────────────────────────────────────────────────────────
@@ -80,6 +88,102 @@ export const usePayrollStore = defineStore('payroll', () => {
     }
   }
 
+  async function fetchByCategoryEfetivoPago(year, month) {
+    appStore.startLoading()
+    try {
+      byCategoryEfetivoPago.value = await payrollService.getByCategoryEfetivoPago(year, month)
+    } catch (err) {
+      appStore.notify({ message: 'Erro ao carregar dados por categoria de efetivo pago.', type: 'error' })
+      console.error(err)
+    } finally {
+      appStore.stopLoading()
+    }
+  }
+
+  async function fetchByAuxAlimentODGSA(yearA, yearB) {
+    appStore.startLoading()
+    try {
+      byAuxAlimentODGSA.value = await payrollService.getByAuxAlimentODGSA(yearA, yearB)
+    } catch (err) {
+      appStore.notify({ message: 'Erro ao carregar dados comparativos por AUXÍLIO ALIMENTAÇÃO ODGSA.', type: 'error' })
+      console.error(err)
+    } finally {
+      appStore.stopLoading()
+    }
+  }
+
+  async function fetchByAuxTranspODGSA(yearA, yearB) {
+    appStore.startLoading()
+    try {
+      byAuxTranspODGSA.value = await payrollService.getByAuxTranspODGSA(yearA, yearB)
+    } catch (err) {
+      appStore.notify({ message: 'Erro ao carregar dados comparativos por AUXÍLIO DE TRANSPORTE ODGSA.', type: 'error' })
+      console.error(err)
+    } finally {
+      appStore.stopLoading()
+    }
+  }
+
+  async function fetchByGratRepODGSA(yearA, yearB) {
+    appStore.startLoading()
+    try {
+      byGratRepODGSA.value = await payrollService.getByGratRepODGSA(yearA, yearB)
+    } catch (err) {
+      appStore.notify({ message: 'Erro ao carregar dados comparativos por GRATIFICAÇÃO POR REPRESENTAÇÃO ODGSA.', type: 'error' })
+      console.error(err)
+    } finally {
+      appStore.stopLoading()
+    }
+  }
+
+  async function fetchByAuxFardODGSA(yearA, yearB) {
+    appStore.startLoading()
+    try {
+      byAuxFardODGSA.value = await payrollService.getByAuxFardODGSA(yearA, yearB)
+    } catch (err) {
+      appStore.notify({ message: 'Erro ao carregar dados comparativos por AUXÍLIO DE FARDAMENTO ODGSA.', type: 'error' })
+      console.error(err)
+    } finally {
+      appStore.stopLoading()
+    }
+  }
+
+  async function fetchByQuantMilQuad(year, month) {
+    appStore.startLoading()
+    try {
+      byQuantMilQuad.value = await payrollService.getByQuantMilQuad(year, month)
+    } catch (err) {
+      appStore.notify({ message: 'Erro ao carregar dados comparativos por MILITARES POR QUADRO.', type: 'error' })
+      console.error(err)
+    } finally {
+      appStore.stopLoading()
+    }
+  }
+
+  async function fetchByCustMilQuad(year, month) {
+    appStore.startLoading()
+    try {
+      byCustMilQuad.value = await payrollService.getByCustMilQuad(year, month)
+    } catch (err) {
+      appStore.notify({ message: 'Erro ao carregar dados comparativos por CUSTO POR QUADRO DE MILITARES.', type: 'error' })
+      console.error(err)
+    } finally {
+      appStore.stopLoading()
+    }
+  }
+
+  async function fetchByMorteFicta(yearA, yearB) {
+    appStore.startLoading()
+    try {
+      byMorteFicta.value = await payrollService.getByMorteFicta(yearA, yearB)
+    } catch (err) {
+      appStore.notify({ message: 'Erro ao carregar dados de Morte Ficta.', type: 'error' })
+      console.error(err)
+    } finally {
+      appStore.stopLoading()
+    }
+  }
+
   async function fetchComparative(yearA, yearB) {
     appStore.startLoading()
     try {
@@ -98,12 +202,28 @@ export const usePayrollStore = defineStore('payroll', () => {
     byRank,
     byUnit,
     byCategory,
+    byCategoryEfetivoPago,
+    byAuxAlimentODGSA,
+    byAuxTranspODGSA,
+    byGratRepODGSA,
+    byAuxFardODGSA,
+    byQuantMilQuad,
+    byCustMilQuad,
+    byMorteFicta,
     comparativeData,
     fetchSummary,
     fetchMonthlyEvolution,
     fetchByRank,
     fetchByUnit,
     fetchByCategory,
+    fetchByCategoryEfetivoPago,
+    fetchByAuxAlimentODGSA,
+    fetchByAuxTranspODGSA,
+    fetchByGratRepODGSA,
+    fetchByAuxFardODGSA,
+    fetchByQuantMilQuad,
+    fetchByCustMilQuad,
+    fetchByMorteFicta,
     fetchComparative,
   }
 })

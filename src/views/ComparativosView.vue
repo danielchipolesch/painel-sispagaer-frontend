@@ -104,6 +104,7 @@ import { PAG_CHART_COLORS } from '@/utils/chartTheme'
 
 import ChartCard from '@/components/cards/ChartCard.vue'
 import BaseChart from '@/components/charts/BaseChart.vue'
+import { formatNumber, gerarMeses } from '../utils/formatters'
 
 const { comparativeData, fetchComparative } = usePayrollData()
 
@@ -111,6 +112,10 @@ const currentYear = new Date().getFullYear()
 const years = Array.from({ length: 6 }, (_, i) => currentYear - 4 + i)
 const yearA = ref(currentYear - 1)
 const yearB = ref(currentYear)
+const janeiro = new Date(new Date().getFullYear(), 0, 1);
+const monthAtual = new Date().toLocaleString('pt-BR', { month: 'short' }).replace('.', '').toUpperCase();
+const monthInicio = janeiro.toLocaleString('pt-BR', { month: 'short' }).replace('.', '').toUpperCase();
+const meses = computed(() => gerarMeses());
 
 async function loadComparative() {
   await fetchComparative(yearA.value, yearB.value)
@@ -121,7 +126,7 @@ onMounted(() => loadComparative())
 const seriesData = computed(() => comparativeData.value?.series ?? [])
 
 const groupedBarOption = computed(() => ({
-  legend: { data: [String(yearA.value), String(yearB.value)], bottom: 0 },
+  legend: { data: [String(yearA.value), String(yearB.value)], position: 'top' },
   xAxis: {
     type: 'category',
     data: seriesData.value.map((d) => d.label),

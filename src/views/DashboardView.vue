@@ -113,14 +113,25 @@
         </ChartCard>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col cols="12" lg="7">
+        <ChartCard
+          title="Conformidade da Folha de Pagamento - FOPAG"
+          :loading=false
+          :height="300"
+        >
+          <BaseChart :option="gaugeCategoryPieOption" :height="380" />
+        </ChartCard>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useAppStore } from '@/store/app'
 import { usePayrollData } from '@/composables/usePayrollData'
-import { abbreviateNumber, formatCurrency } from '@/utils/formatters'
+import { abbreviateNumber, formatCurrency, getColor } from '@/utils/formatters'
 import { PAG_CHART_COLORS } from '@/utils/chartTheme'
 
 import KpiCard from '@/components/cards/KpiCard.vue'
@@ -128,8 +139,9 @@ import ChartCard from '@/components/cards/ChartCard.vue'
 import BaseChart from '@/components/charts/BaseChart.vue'
 import PeriodFilter from '@/components/filters/PeriodFilter.vue'
 
+const gaugeValue = ref(10.00)
 const appStore = useAppStore()
-const { summary, monthlyEvolution, byUnit, byRank, byCategory, fetchAll } = usePayrollData()
+const { summary, monthlyEvolution, byUnit, byRank, byCategory, fetchAll, byCategoryEfetivoPago } = usePayrollData()
 
 function onSearch({ year, month }) {
   appStore.selectedYear = year
@@ -142,7 +154,7 @@ function onSearch({ year, month }) {
 const evolutionChartOption = computed(() => ({
   legend: {
     data: ['Bruto', 'Líquido'],
-    bottom: 0,
+    position: 'top',
   },
   xAxis: {
     type: 'category',
@@ -241,4 +253,108 @@ const rankBarOption = computed(() => ({
     },
   ],
 }))
+
+const gaugeCategoryPieOption = computed(() => {
+  const value = gaugeValue.value
+  const color = getColor(value)
+
+  return {
+    graphic: [
+      {
+        type: 'group',
+        left: 'center',
+        top: '88%',
+        children: [
+          {
+            type: 'text',
+            left: 0,
+            style: {
+              text: '🔴 Ruim (<50)',
+              fill: '#666',
+              fontSize: 12,
+            },
+          },
+          {
+            type: 'text',
+            left: 130,
+            style: {
+              text: '🟡 Regular (50-75)',
+              fill: '#666',
+              fontSize: 12,
+            },
+          },
+          {
+            type: 'text',
+            left: 280,
+            style: {
+              text: '🟢 Bom (75-95)',
+              fill: '#666',
+              fontSize: 12,
+            },
+          },
+          {
+            type: 'text',
+            left: 430,
+            style: {
+              text: '🔵 Excelente (95-100)',
+              fill: '#666',
+              fontSize: 12,
+            },
+          },
+        ],
+      },
+    ],
+
+    series: [
+      {
+        type: 'gauge',
+        min: 0,
+        max: 100,
+
+        radius: '90%',
+        center: ['50%', '55%'],
+
+        axisLine: {
+          lineStyle: {
+            width: 14,
+            color: [
+              [0.5, '#ff4d4f'], //até 50%
+              [0.75, '#faad14'], //até 75%
+              [0.95, '#52c41a'],   //até 95%
+              [1, '#1ab0c4'],   //até 100%
+            ],
+          },
+        },
+
+        progress: {
+          show: true,
+          width: 14,
+          itemStyle: {
+            color: color,
+          },
+        },
+
+        pointer: {
+          itemStyle: {
+            color: color,
+          },
+          length: '70%',
+        },
+
+        detail: {
+          valueAnimation: true,
+          formatter: '{value}%',
+          color: color,
+          fontSize: 24,
+        },
+
+        data: [
+          {
+            value: value,
+          },
+        ],
+      },
+    ],
+  }
+})
 </script>

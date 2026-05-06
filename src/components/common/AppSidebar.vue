@@ -47,6 +47,50 @@
 
             <v-divider color="rgba(255,255,255,0.1)" class="my-2" />
 
+            <!-- Rúbricas group -->
+            <v-list-subheader v-if="!appStore.sidebarRail" class="nav-subheader">
+                Rúbricas
+            </v-list-subheader>
+
+            <v-list-item v-for="item in rubricaItems" :key="item.name" :prepend-icon="item.meta.icon"
+                :title="item.meta.title" :to="item.path" active-class="nav-item--active" color="white" rounded="lg"
+                class="nav-item mb-1" />
+
+            <v-divider color="rgba(255,255,255,0.1)" class="my-2" />
+
+            <!-- Ativo group -->
+            <v-list-subheader v-if="!appStore.sidebarRail" class="nav-subheader">
+                Ativo
+            </v-list-subheader>
+
+            <v-list-item v-for="item in ativoItems" :key="item.name" :prepend-icon="item.meta.icon"
+                :title="item.meta.title" :to="item.path" active-class="nav-item--active" color="white" rounded="lg"
+                class="nav-item mb-1" />
+
+            <v-divider color="rgba(255,255,255,0.1)" class="my-2" />
+
+            <!-- Rceg group -->
+            <v-list-subheader v-if="!appStore.sidebarRail" class="nav-subheader">
+                Rceg
+            </v-list-subheader>
+
+            <v-list-item v-for="item in rcegItems" :key="item.name" :prepend-icon="item.meta.icon"
+                :title="item.meta.title" :to="item.path" active-class="nav-item--active" color="white" rounded="lg"
+                class="nav-item mb-1" />
+
+            <v-divider color="rgba(255,255,255,0.1)" class="my-2" />
+
+            <!-- Diárias group -->
+            <v-list-subheader v-if="!appStore.sidebarRail" class="nav-subheader">
+                Diárias
+            </v-list-subheader>
+
+            <v-list-item v-for="item in diariasItems" :key="item.name" :prepend-icon="item.meta.icon"
+                :title="item.meta.title" :to="item.path" active-class="nav-item--active" color="white" rounded="lg"
+                class="nav-item mb-1" />
+
+            <v-divider color="rgba(255,255,255,0.1)" class="my-2" />
+
             <!-- Relatórios group -->
             <v-list-subheader v-if="!appStore.sidebarRail" class="nav-subheader">
                 Relatórios
@@ -80,6 +124,22 @@ const principalItems = computed(() =>
 
 const analiseItems = computed(() =>
     allRoutes.value.filter((r) => r.meta.group === 'analises')
+)
+
+const rubricaItems = computed(() =>
+    allRoutes.value.filter((r) => r.meta.group === 'rubricas')
+)
+
+const ativoItems = computed(() =>
+    allRoutes.value.filter((r) => r.meta.group === 'ativo')
+)
+
+const rcegItems = computed(() =>
+    allRoutes.value.filter((r) => r.meta.group === 'rceg')
+)
+
+const diariasItems = computed(() =>
+    allRoutes.value.filter((r) => r.meta.group === 'diarias')
 )
 
 const relatorioItems = computed(() =>

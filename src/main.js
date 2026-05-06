@@ -29,6 +29,7 @@ import {
   ToolboxComponent,
   DatasetComponent,
   TransformComponent,
+  GraphicComponent
 } from 'echarts/components'
 
 use([
@@ -50,6 +51,7 @@ use([
   ToolboxComponent,
   DatasetComponent,
   TransformComponent,
+  GraphicComponent
 ])
 
 const app = createApp(App)

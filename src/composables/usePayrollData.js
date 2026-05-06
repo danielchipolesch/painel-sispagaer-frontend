@@ -17,7 +17,7 @@ export function usePayrollData() {
   const payrollStore = usePayrollStore()
 
   const { selectedYear, selectedMonth } = storeToRefs(appStore)
-  const { summary, monthlyEvolution, byRank, byUnit, byCategory, comparativeData } =
+  const { summary, monthlyEvolution, byRank, byUnit, byCategory, comparativeData, byCategoryEfetivoPago, byAuxAlimentODGSA, byAuxTranspODGSA, byGratRepODGSA, byAuxFardODGSA, byQuantMilQuad, byCustMilQuad, byMorteFicta } =
     storeToRefs(payrollStore)
 
   async function fetchAll() {
@@ -27,6 +27,15 @@ export function usePayrollData() {
       payrollStore.fetchByRank(selectedYear.value, selectedMonth.value),
       payrollStore.fetchByUnit(selectedYear.value, selectedMonth.value),
       payrollStore.fetchByCategory(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchByCategoryEfetivoPago(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchByAuxAlimentODGSA(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchByAuxTranspODGSA(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchByGratRepODGSA(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchByAuxFardODGSA(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchByQuantMilQuad(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchByCustMilQuad(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchByMorteFicta(selectedYear.value, selectedMonth.value),
+      payrollStore.fetchComparative(selectedYear.value),
     ])
   }
 
@@ -42,11 +51,27 @@ export function usePayrollData() {
     byRank,
     byUnit,
     byCategory,
+    byCategoryEfetivoPago,
+    byAuxAlimentODGSA,
+    byAuxTranspODGSA,
+    byGratRepODGSA,
+    byAuxFardODGSA,
+    byQuantMilQuad,
+    byCustMilQuad,
+    byMorteFicta,
     comparativeData,
     selectedYear,
     selectedMonth,
     // Actions
     fetchAll,
     fetchComparative: payrollStore.fetchComparative,
+    fetchByCategoryEfetivoPago: payrollStore.fetchByCategoryEfetivoPago,
+    fetchByAuxAlimentODGSA: payrollStore.fetchByAuxAlimentODGSA,
+    fetchByAuxTranspODGSA: payrollStore.fetchByAuxTranspODGSA,
+    fetchByGratRepODGSA: payrollStore.fetchByGratRepODGSA,
+    fetchByAuxFardODGSA: payrollStore.fetchByAuxFardODGSA,
+    fetchByQuantMilQuad: payrollStore.fetchByQuantMilQuad,
+    fetchByCustMilQuad: payrollStore.fetchByCustMilQuad,
+    fetchByMorteFicta: payrollStore.fetchByMorteFicta,
   }
 }
